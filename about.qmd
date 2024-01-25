@@ -1,0 +1,18 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/Annath
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/nomiller/
+
+---
+
+I'm Nathan. I'm an engineer who enjoys working on low-level stuff, close to the
+hardware. I love seeing new hardware come to life, and this is my space to write
+about making that happen.
