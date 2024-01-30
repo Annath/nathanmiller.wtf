@@ -1,0 +1,55 @@
+---
+title: "Getting Started"
+date: "2024-01-25"
+categories: [news]
+---
+
+I've wanted to start a blog to document my small home projects for a while, and
+now seems like as good of a time as any to finally dive in. I'm starting off
+with a brand new project: A Thread-connected wireless temperature sensor. I've
+wanted to experiment with Thread for a while.
+
+I had a short exposure to Thread years ago, when I was tasked with helping test
+early versions of Thread firmware being developed by Silicon Labs for a family
+of 802.15.4 radio-transciever MCUs. At the time, I was working for a large (by
+order volume, anyway) customer of theirs, and we were heavy users of the MCU
+family in question, so we were asked to help with the early round of testing
+alongside several other companies, using our existing devices. It was a blast,
+and I've wanted to revisit the protocol since.
+
+I'm starting off with an EFR32-family MCU for a couple of reasons:
+1. The family of MCUs I'd worked with back then was made by a company called
+Ember, and Ember had a suite of diagnostic packet-tracing tools for Zigbee that
+was *phenomenal*. I'd like to see if SiLabs has maintained those tools and
+ported them forward for Thread, because if so, it will make development much
+easier.
+2. I want to experiment with an MCU ecosystem that I don't have as much
+experience with. Most of my bare-metal experience has been on that original
+Ember family, as well as more recently on STM32. While SiLabs kept some of the
+Ember tools, they mostly merged it into their EFR32 lineup, and most of the
+tooling around EFR32 is new to me.
+
+## Project Plan
+
+I have a number of goals for this project, organized into milestones that I'd
+like to hit in order:
+
+1. Build and flash simple test firmware on an EFR32 dev board to verify that I
+can do that with the included toolchain.
+2. Get a border-router and a simple CLI Thread device working.
+3. Port the build from the included toolchain to a more generic build-system,
+set up VS Code as an editor, and set up Cortex-Debug for debugging.
+4. Get the EFR32 MCU on my end device talking to a temperature sensor via I2C.
+5. Build a demo of a Thread-connected device that reports the temperature from
+the attached sensor.
+6. Add a battery and report battery voltage.
+7. Design a custom PCB for my project, including battery management, temperature
+sensing, and the EFR32 MCU and all supporting components.
+8. Order and check-out the custom PCB.
+9. Set up a CI/CD build system for the firmware on my custom PCB.
+10. Port all existing demo-code over to my custom PCB.
+11. Design and 3D print a housing for my custom PCB.
+
+I'm trying to get as close to "finished product" as I can with the capabilities
+I have here at home, so I'm trying to work all the way through the process of
+setting up tooling, infrastructure, and hardware design for this project.
