@@ -40,6 +40,7 @@ can do that with the included toolchain.
 3. Port the build from the included toolchain to a more generic build-system,
 set up VS Code as an editor, and set up Cortex-Debug for debugging.
 4. Get the EFR32 MCU on my end device talking to a temperature sensor via I2C.
+5. Pick a unit test framework and start adding tests.
 5. Build a demo of a Thread-connected device that reports the temperature from
 the attached sensor.
 6. Add a battery and report battery voltage.
