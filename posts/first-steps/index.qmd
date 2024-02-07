@@ -1,6 +1,6 @@
 ---
 title: "First Steps with EFR32"
-date: "2024-01-30"
+date: "2024-02-06"
 categories: [projects efr32-thread-temp]
 ---
 
