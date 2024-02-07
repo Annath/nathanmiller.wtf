@@ -34,7 +34,16 @@ This also means that I access the OpenThread web portal via port `8081` on the
 raspberry pi instead of `8080`.
 
 After all of that, I was able to to open up the OpenThread web portal and form
-a network.
+a network successfully. Additionally, after creating the docker container I gave
+it a name by running
+
+```bash
+docker rename CONTAINER_ID ot_border_router
+```
+
+(Replace CONTAINER_ID with the actual container ID). I believe it's also
+possible to name a container when it is created with `docker run`, but because
+I didn't do that initially, I had to use `docker rename`.
 
 Next up will be setting up a simple Thread device and testing out basic
 connectivity.
