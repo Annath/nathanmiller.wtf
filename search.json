@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Nathan Miller",
+    "section": "",
+    "text": "Getting Started\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 6, 2024\n\n\nNathan Miller\n\n\n\n\n\n\n\n\n\n\n\n\nFirst Steps with EFR32\n\n\n\n\n\n\nprojects efr32-thread-temp\n\n\n\n\n\n\n\n\n\nFeb 6, 2024\n\n\nNathan Miller\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/first-steps/index.html",
+    "href": "posts/first-steps/index.html",
+    "title": "First Steps with EFR32",
+    "section": "",
+    "text": "The first step I want to take is getting a basic development environment set up. I downloaded and installed Simplicity Studio from SiLabs’ website, which includes a GCC-based toolchain, and start spinning up an example project. Doing a bit of google-searching led me to a couple of tutorials, and I’m following this Youtube tutorial from SiLabs themselves. This will serve as a great starting point, as I’ll need a border-router for further Thread development anyway.\nI’m using the same development board referenced in that video (an EFR32xG24 Explorer Kit), which makes things reasonably simple. Following the instructions I was able to build both the bootloader and the OpenThread RCP binary for my dev board. I deviated slightly from the video, however; I didn’t install the SiLabs Matter border-router image on my Raspberry Pi. I already have a Pi 4 set up to function as a docker container host for other things, so instead I followed these instructions from OpenThread to set up a border router docker container. I was able to follow these instructions as is, except for one modification: I changed the port mapping between the container and the host so that the container’s port 80 would be mapped to port 8081 on the host, to avoid a conflict. To do this, I replaced -p 8080:80 in the original docker run command with -p 8081:80. The complete command to run my container was:\ndocker run --sysctl \"net.ipv6.conf.all.disable_ipv6=0 net.ipv4.conf.all.forwarding=1 net.ipv6.conf.all.forwarding=1\" -p 8081:80 --dns=127.0.0.1 -it --volume /dev/ttyACM0:/dev/ttyACM0 --privileged openthread/otbr --radio-url spinel+hdlc+uart:///dev/ttyACM0\nThis also means that I access the OpenThread web portal via port 8081 on the raspberry pi instead of 8080.\nAfter all of that, I was able to to open up the OpenThread web portal and form a network.\nNext up will be setting up a simple Thread device and testing out basic connectivity."
+  },
+  {
+    "objectID": "posts/getting-started/index.html",
+    "href": "posts/getting-started/index.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "I’ve wanted to start a blog to document my small home projects for a while, and now seems like as good of a time as any to finally dive in. I’m starting off with a brand new project: A Thread-connected wireless temperature sensor. I’ve wanted to experiment with Thread for a while.\nI had a short exposure to Thread years ago, when I was tasked with helping test early versions of Thread firmware being developed by Silicon Labs for a family of 802.15.4 radio-transciever MCUs. At the time, I was working for a large (by order volume, anyway) customer of theirs, and we were heavy users of the MCU family in question, so we were asked to help with the early round of testing alongside several other companies, using our existing devices. It was a blast, and I’ve wanted to revisit the protocol since.\nI’m starting off with an EFR32-family MCU for a couple of reasons: 1. The family of MCUs I’d worked with back then was made by a company called Ember, and Ember had a suite of diagnostic packet-tracing tools for Zigbee that was phenomenal. I’d like to see if SiLabs has maintained those tools and ported them forward for Thread, because if so, it will make development much easier. 2. I want to experiment with an MCU ecosystem that I don’t have as much experience with. Most of my bare-metal experience has been on that original Ember family, as well as more recently on STM32. While SiLabs kept some of the Ember tools, they mostly merged it into their EFR32 lineup, and most of the tooling around EFR32 is new to me."
+  },
+  {
+    "objectID": "posts/getting-started/index.html#project-plan",
+    "href": "posts/getting-started/index.html#project-plan",
+    "title": "Getting Started",
+    "section": "Project Plan",
+    "text": "Project Plan\nI have a number of goals for this project, organized into milestones that I’d like to hit in order:\n\nBuild and flash simple test firmware on an EFR32 dev board to verify that I can do that with the included toolchain.\nGet a border-router and a simple CLI Thread device working.\nPort the build from the included toolchain to a more generic build-system, set up VS Code as an editor, and set up Cortex-Debug for debugging.\nGet the EFR32 MCU on my end device talking to a temperature sensor via I2C.\nPick a unit test framework and start adding tests.\nBuild a demo of a Thread-connected device that reports the temperature from the attached sensor.\nAdd a battery and report battery voltage.\nDesign a custom PCB for my project, including battery management, temperature sensing, and the EFR32 MCU and all supporting components.\nOrder and check-out the custom PCB.\nSet up a CI/CD build system for the firmware on my custom PCB.\nPort all existing demo-code over to my custom PCB.\nDesign and 3D print a housing for my custom PCB.\n\nI’m trying to get as close to “finished product” as I can with the capabilities I have here at home, so I’m trying to work all the way through the process of setting up tooling, infrastructure, and hardware design for this project."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I’m Nathan. I’m an engineer who enjoys working on low-level stuff, close to the hardware. I love seeing new hardware come to life, and this is my space to write about making that happen."
+  }
+]
