@@ -1,6 +1,6 @@
 ---
 title: "Getting Started"
-date: "2024-02-06"
+date: "2024-02-05"
 categories: [news]
 ---
 
